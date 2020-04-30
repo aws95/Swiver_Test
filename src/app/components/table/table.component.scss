@@ -1,5 +1,5 @@
 $primary-color: #DAE1EC;
-
+$secondary-color: #d61686;
 :host {
   display: flex;
   justify-content: center;
@@ -12,3 +12,10 @@ table {
   font-size: 14px;
   width: 100%;
 }
+.mat-row:nth-child(even){
+  background-color:$primary-color;
+  }
+
+.mat-row:nth-child(odd){
+  background-color:$secondary-color;
+  }
