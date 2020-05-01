@@ -6,7 +6,7 @@ $secondary-color: #f8f8f8;
   margin: 100px 0px;
 }
 table {
-  width: 100%;
+  width: 1000px;
 }
 .mat-form-field {
   font-size: 14px;
@@ -15,10 +15,22 @@ table {
 .mat-row:nth-child(even) {
   background-color: $primary-color;
 }
-
 .mat-row:nth-child(odd) {
   background-color: $secondary-color;
 }
 .mat-column-select {
   overflow: initial;
+}
+.w-70{
+  width: 70px;
+}
+
+.w-100{
+  width: 100px;
+}
+.th-center{
+  text-align: center;
+}
+.td-center{
+  text-align: center;
 }

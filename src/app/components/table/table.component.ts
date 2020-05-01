@@ -17,7 +17,7 @@ export interface apiData {
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'id', 'title', 'completed'];
+  displayedColumns: string[] = ['select', 'id', 'title', 'completed', 'settings'];
   ELEMENT_DATA: apiData[];
   dataSource: MatTableDataSource<apiData>;
   selection = new SelectionModel<apiData>(true, []);

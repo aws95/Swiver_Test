@@ -14,13 +14,13 @@
             </mat-grid-tile>
             <mat-grid-tile><button mat-raised-button color="primary"><span class="material-icons">
                         add_circle
-                    </span>Add Post</button></mat-grid-tile>
+                    </span>Add Task</button></mat-grid-tile>
         </mat-grid-list>
 
     </div>
     <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="select">
-            <th mat-header-cell *matHeaderCellDef>
+            <th class="w-70" mat-header-cell *matHeaderCellDef>
                 <mat-checkbox (change)="$event ? masterToggle() : null"
                     [checked]="selection.hasValue() && isAllSelected()"
                     [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
@@ -34,20 +34,39 @@
         </ng-container>
         <!-- Position Column -->
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> ID. </th>
-            <td mat-cell *matCellDef="let element">  {{element.id}} </td>
+            <th class="w-70" mat-header-cell *matHeaderCellDef> ID. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef width ="60%"> Title </th>
+            <th  mat-header-cell *matHeaderCellDef> Task </th>
             <td mat-cell *matCellDef="let element"> {{element.title}} </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="completed">
-            <th mat-header-cell *matHeaderCellDef> Completed?</th>
-            <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
+            <th class="w-70" mat-header-cell *matHeaderCellDef> Completed?</th>
+            <td mat-cell *matCellDef="let element">
+                <mat-chip-list aria-label="completed selection">
+                    <mat-chip *ngIf="element.completed === true" color="primary" selected>{{element.completed}}</mat-chip>
+                    <mat-chip *ngIf="element.completed === false">{{element.completed}}</mat-chip>
+                  </mat-chip-list>
+            </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="settings">
+            <th class="th-center" mat-header-cell *matHeaderCellDef> <span class="material-icons">
+                    more_horiz
+                </span></th>
+            <td class="td-center" mat-cell *matCellDef="let element"> <span class="material-icons">
+                    create
+                </span> <span class="material-icons">
+                    delete
+                </span> <span class="material-icons">
+                    more_horiz
+                </span> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
